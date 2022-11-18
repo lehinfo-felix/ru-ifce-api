@@ -1,8 +1,8 @@
-import consultarAlmoço from '../scripts/consultas/consultaAlmoco'
+import consultarAlmoço, {consultarAlmoco} from '../scripts/consultas/consultaAlmoco'
 
 class Consultas {
   async almoco(req, res) {
-    await Login()
+    await consultarAlmoco()
   }
 
   async lancheManha(req, res) {}

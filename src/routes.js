@@ -1,8 +1,11 @@
 import express from "express";
+
 import ControllerConsultas from "./controllers/ControllerConsultas";
-import ControllerReserva from "./controllers/ControllerReserva";
+//import ControllerReserva from "./controllers/ControllerReserva";
+
 const router = express.Router();
 router.use(express.Json());
+
 
 //Consultas
 router.get("consulta/almoco", ControllerConsultas.almoco);

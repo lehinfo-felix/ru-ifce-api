@@ -1,5 +1,5 @@
 import puppeteer from "puppeteer";
-export const consultarAlmoço = async () => {
+  export const consultarAlmoco = async () => {
   const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
 
@@ -7,4 +7,8 @@ export const consultarAlmoço = async () => {
   await page.type('[name="email"]', "lehinfo.felix@gmail.com");
   await page.type('[name="password"]', "123456");
   await page.click(".App1-MuiButton-label");
+
+  await page.click(".App1-MuiButton-root");
 };
+
+consultarAlmoco();
