@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/CarlosEmannoel16/ru-ifce-bot#readme",
   "dependencies": {
+    "express": "^4.18.2",
     "puppeteer": "^19.2.2"
   },
   "devDependencies": {
