@@ -43,13 +43,12 @@ async function bot() {
 
   const almoço = await page.evaluate(() => {
     return {
-      clickInpurEmail: document
-        .querySelectorAll(".App1-MuiTypography-root")[0]
+      clickInpurEmail: document.querySelectorAll(".App1-MuiTypography-root")[0]
     };
    });
 
    console.log(almoço)
-
+'teste'
 
 
   // const clickInputSenha = await page.evaluate(() => {
