@@ -1,4 +1,4 @@
-import login from '../scripts/login/login'
+import consultarAlmoço from '../scripts/consultas/consultaAlmoco'
 
 class Consultas {
   async almoco(req, res) {
