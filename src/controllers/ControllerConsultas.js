@@ -2,10 +2,7 @@ import login from '../scripts/login/login'
 
 class Consultas {
   async almoco(req, res) {
-  
-    await login()
-    
-
+    await Login()
   }
 
   async lancheManha(req, res) {}
