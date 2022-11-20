@@ -1,6 +1,6 @@
 import { Router, Request, Response } from "express";
-import ConsultasController from "./controllers/ConsultasController";
-import ReservaController from "./controllers/ReservaController";
+import ConsultasController from "./presetation/controllers/ConsultasController";
+import ReservaController from "./presetation/controllers/ReservaController";
 
 const route = Router()
 

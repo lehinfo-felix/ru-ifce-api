@@ -1,10 +1,20 @@
-import express from  'express'
-import {Router, Request, Response} from 'express'
-import route from './routes'
-const app = express()
+import express from "express";
+import mongoose from "mongoose";
+import mongoConnect from "./db";
+import route from "./routes";
+const app = express();
 
-app.use(express.json())
+app.use(express.json());
 
-
-app.use(route)
-app.listen(3000)
+app.use(route);
+const port = 8080
+mongoose
+  .connect("mongodb://localhost:27017/testtt")
+  .then(() => {
+    app.listen(port, async () => {
+      console.log("Api ru-ifce-bot running in port " + port);
+    });
+  })
+  .catch(() => {
+    console.log("MongoDb not connected");
+  });
