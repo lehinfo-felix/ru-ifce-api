@@ -28,7 +28,8 @@ export const getRefeicoes = async () => {
 
   const text = await page.evaluate(() => {
     //return document.querySelector("#refeicoes")?.textContent
-    return document.querySelector("#refeicoes")?.innerHTML
+    const refeicoesDiv: any = document.querySelector("#refeicoes")?.textContent
+    return refeicoesDiv
   });
 return text
 };
