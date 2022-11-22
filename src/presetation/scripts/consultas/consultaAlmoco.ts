@@ -1,42 +1,63 @@
 import puppeteer from "puppeteer";
-export const getRefeicoes = async () => {
-  c
 
+export const consultaRefeicoes = async (callback: Function) => {
+  const browser = await puppeteer.launch({ headless: false });
+  const page = await browser.newPage();
 
+  await page.goto("https://ru.cedro.ifce.edu.br/sign-in");
+  await page.type('[name="email"]', "lehinfo.felix@gmail.com");
+  await page.type('[name="password"]', "123456");
+  await page.click(".App1-MuiButton-label");
+  await page.waitForNavigation();
 
-  //  setTimeout(async () => {
-  //   refeicao = await pegarRefeicao();
-  // }, 1000);
+  setTimeout(() => {
+    page.waitForSelector(".App1-MuiCardContent-root").then(() => {
+      page
+        .evaluate(() => {
+          return (document.querySelectorAll(".App1-MuiCardContent-root")[1].id =
+            "refeicoes");
+        })
+        .then(async () => {
+          page
+            .evaluate(() => {
+              return {
+                refeicaoUm: {
+                  nome: document.querySelectorAll("#refeicoes > div")[0]
+                    ?.childNodes[0]?.textContent,
+                  Descricao:
+                    document.querySelectorAll("#refeicoes > div")[0]
+                      ?.childNodes[1]?.textContent,
+                },
 
-  // while (loop){
-  //   console.log('No While')
-  //   if(pegouRefeicao){
-  //     console.log(refeicao)
-  //     loop = false
-  //   }
+                refeicaoDois: {
+                  nome: document.querySelectorAll("#refeicoes > div")[1]
+                    ?.childNodes[0]?.textContent,
+                  Descricao:
+                    document.querySelectorAll("#refeicoes > div")[1]
+                      ?.childNodes[1]?.textContent,
+                },
+                refeicaoTres: {
+                  nome: document.querySelectorAll("#refeicoes > div")[2]
+                    ?.childNodes[0]?.textContent,
+                  Descricao:
+                    document.querySelectorAll("#refeicoes > div")[2]
+                      ?.childNodes[1]?.textContent,
+                },
+                refeicaoQuatro: {
+                  nome: document.querySelectorAll("#refeicoes > div")[3]
+                    ?.childNodes[0]?.textContent,
+                  Descricao:
+                    document.querySelectorAll("#refeicoes > div")[3]
+                      ?.childNodes[1]?.textContent,
+                },
+              };
+            })
+            .then(async (divs) => {
+              console.log("Divs", divs);
 
-  // }
-
-  // const text1 = await pageStudent.$eval('#refeicoes > div ', (text)=>text.innerHTML)
-  // console.log( text1)
-
-  //   const text = page.evaluate(() => {
-  //     //return document.querySelector("#refeicoes")?.textContent
-
-  //     let title : any =  document.querySelector("#refeicoes > p")?.innerHTML
-
-  //     let refeicaoUm: string = document.querySelectorAll("#refeicoes > div")[0]?.innerHTML
-  //     let refeicaoDois: any = document.querySelectorAll("#refeicoes > div")[1]?.innerHTML
-  //     let refeicaoTres: any = document.querySelectorAll("#refeicoes > div")[2]?.innerHTML
-  //     let refeicaoQuatro: any = document.querySelectorAll("#refeicoes > div")[3]?.innerHTML
-
-  //     let descart : string = `<p class="\App1-MuiTypography-root jss11 App1-MuiTypography-body1 App1-MuiTypography-colorTextPrimary\">`
-  // // <p class="App1-MuiTypography-root jss11 App1-MuiTypography-body1 App1-MuiTypography-colorTextPrimary">
-  //     let refeicaoUmReplaced : string = refeicaoUm.replace(descart, '')
-
-  //     let refeicaoUmSplited : string = refeicaoUmReplaced.split('</p>').join('')
-
-  //     return refeicaoUmSplited
-  //});
-  //return text
+              callback(divs);
+            });
+        });
+    });
+  }, 900);
 };

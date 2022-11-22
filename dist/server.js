@@ -21,7 +21,7 @@ app.use(express_1.default.json());
 app.use(routes_1.default);
 const port = 3000;
 app.listen(port, () => __awaiter(void 0, void 0, void 0, function* () {
-    console.log("Api ru-ifce-bot running in port " + port);
+    console.log("Api ru-ifce-bot running in port " + port + "🚀");
 }));
 // mongoose
 //   .connect("mongodb://localhost:27017/testtt")
