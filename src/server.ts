@@ -1,6 +1,6 @@
 import express from "express";
-import mongoose from "mongoose";
-import mongoConnect from "./db";
+// import mongoose from "mongoose";
+// import mongoConnect from "./db";
 import route from "./routes";
 const app = express();
 

@@ -1,6 +1,6 @@
-import mongoose from "mongoose";
-const mongoConnect = async () => {
- 
-};
-
-export default mongoConnect;
+// import mongoose from "mongoose";
+// const mongoConnect = async () => {
+//
+// };
+//
+// export default mongoConnect;
