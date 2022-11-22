@@ -1,5 +1,5 @@
 import puppeteer from "puppeteer";
-export const consultarAlmoco = async () => {
+export const getRefeicoes = async () => {
   const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
 
@@ -14,22 +14,26 @@ export const consultarAlmoco = async () => {
       .length;
   });
 
-  let arrayPosition: Array<number> = [];
+  const arrayPosition: Array<number> = [];
   for (let index = 1; index < length - 2; index++) {
     const indexArray = length - index;
     arrayPosition.push(indexArray);
   }
   console.log(arrayPosition);
-  for (let position in arrayPosition) {
-    const refeicao = await page.evaluate(() => {
-      return document.querySelectorAll(".App1-MuiCardContent-root")[1].children[3].children[1].innerHTML
-      
-    });
+//setaId
+  await page.evaluate(() => {
+    return (document.querySelectorAll(".App1-MuiCardContent-root")[1].id =
+      "refeicoes");
+  });
 
-   console.log(refeicao)
-  }
+  const text = await page.evaluate(() => {
+    return document.querySelector("#refeicoes")?.textContent
+  });
 
 
+
+  console.log(text)
+
+  
+ 
 };
-
-

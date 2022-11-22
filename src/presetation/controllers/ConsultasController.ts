@@ -1,5 +1,5 @@
 import {Request, Response} from  'express'
-import { consultarAlmoco } from '../../scripts'
+import { getRefeicoes } from '../../presetation/scripts/consultas/consultaAlmoco'
 import {isWeekend} from '../helpers/isWeekend'
 class ConsultasController{
    async consultaAlmoco(req: Request, res: Response){
@@ -7,7 +7,7 @@ class ConsultasController{
          res.status(200).json({mensage: 'Olá, As consultas de refeições estão disponíveis apenas de segunda a sexta!'})
          return
       }
-      await consultarAlmoco()
+      await getRefeicoes()
       res.json('Almoço')
    }
 
