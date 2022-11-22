@@ -26,10 +26,23 @@ export const getRefeicoes = async () => {
       "refeicoes");
   });
 
-  const text = await page.evaluate(() => {
+  const text = page.evaluate(() => {
     //return document.querySelector("#refeicoes")?.textContent
-    const refeicoesDiv: any = document.querySelector("#refeicoes")?.textContent
-    return refeicoesDiv
+
+    let title : any =  document.querySelector("#refeicoes > p")?.innerHTML
+
+    let refeicaoUm: string = document.querySelectorAll("#refeicoes > div")[0]?.innerHTML
+    let refeicaoDois: any = document.querySelectorAll("#refeicoes > div")[1]?.innerHTML
+    let refeicaoTres: any = document.querySelectorAll("#refeicoes > div")[2]?.innerHTML
+    let refeicaoQuatro: any = document.querySelectorAll("#refeicoes > div")[3]?.innerHTML
+
+    let descart : string = `<p class="\App1-MuiTypography-root jss11 App1-MuiTypography-body1 App1-MuiTypography-colorTextPrimary\">`
+// <p class="App1-MuiTypography-root jss11 App1-MuiTypography-body1 App1-MuiTypography-colorTextPrimary">
+    let refeicaoUmReplaced : string = refeicaoUm.replace(descart, '')
+
+    let refeicaoUmSplited : string = refeicaoUmReplaced.split('</p>').join('')
+
+    return refeicaoUmSplited
   });
 return text
 };
