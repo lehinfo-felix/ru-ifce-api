@@ -1,6 +1,6 @@
 import puppeteer from "puppeteer";
 export const getRefeicoes = async () => {
-  const browser = await puppeteer.launch({ headless: false });
+  const browser = await puppeteer.launch();
   const page = await browser.newPage();
 
   await page.goto("https://ru.cedro.ifce.edu.br/sign-in");
@@ -30,10 +30,5 @@ export const getRefeicoes = async () => {
     return document.querySelector("#refeicoes")?.textContent
   });
 
-
-
-  console.log(text)
-
-  
- 
+return text
 };

@@ -1,8 +1,10 @@
-import { Router, Request, Response } from "express";
+import { Router } from "express";
 import ConsultasController from "./presetation/controllers/ConsultasController";
 import ReservaController from "./presetation/controllers/ReservaController";
 
 const route = Router()
+
+route.get(`/`, ()=>{console.log('Pong')})
 
 //Consultas
 const CONSULTA = '/consulta'
