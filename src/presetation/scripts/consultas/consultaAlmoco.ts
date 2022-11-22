@@ -4,7 +4,7 @@ export const getRefeicoes = async () => {
   const page = await browser.newPage();
 
   await page.goto("https://ru.cedro.ifce.edu.br/sign-in");
-  await page.type('[name="email"]', "carlosemannoel2017@gmail.com");
+  await page.type('[name="email"]', "lehinfo.felix@gmail.com");
   await page.type('[name="password"]', "123456");
   await page.click(".App1-MuiButton-label");
   await page.waitForNavigation();
@@ -27,8 +27,8 @@ export const getRefeicoes = async () => {
   });
 
   const text = await page.evaluate(() => {
-    return document.querySelector("#refeicoes")?.textContent
+    //return document.querySelector("#refeicoes")?.textContent
+    return document.querySelector("#refeicoes")?.innerHTML
   });
-
 return text
 };
