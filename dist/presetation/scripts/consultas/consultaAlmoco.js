@@ -38,29 +38,30 @@ const consultaRefeicoes = (callback) => __awaiter(void 0, void 0, void 0, functi
                             name: (_b = (_a = document.querySelectorAll("#refeicoes > div")[0]) === null || _a === void 0 ? void 0 : _a.childNodes[0]) === null || _b === void 0 ? void 0 : _b.textContent,
                             description: (_d = (_c = document.querySelectorAll("#refeicoes > div")[0]) === null || _c === void 0 ? void 0 : _c.childNodes[1]) === null || _d === void 0 ? void 0 : _d.textContent,
                             startTime: (_f = (_e = document.querySelectorAll("#refeicoes > div")[0]) === null || _e === void 0 ? void 0 : _e.childNodes[2]) === null || _f === void 0 ? void 0 : _f.textContent,
-                            endTime: (_h = (_g = document.querySelectorAll("#refeicoes > div")[0]) === null || _g === void 0 ? void 0 : _g.childNodes[2]) === null || _h === void 0 ? void 0 : _h.textContent,
+                            endTime: (_h = (_g = document.querySelectorAll("#refeicoes > div")[0]) === null || _g === void 0 ? void 0 : _g.childNodes[3]) === null || _h === void 0 ? void 0 : _h.textContent,
                         },
                         menuTwo: {
-                            name: (_k = (_j = document.querySelectorAll("#refeicoes > div")[0]) === null || _j === void 0 ? void 0 : _j.childNodes[0]) === null || _k === void 0 ? void 0 : _k.textContent,
-                            description: (_m = (_l = document.querySelectorAll("#refeicoes > div")[0]) === null || _l === void 0 ? void 0 : _l.childNodes[1]) === null || _m === void 0 ? void 0 : _m.textContent,
-                            startTime: (_p = (_o = document.querySelectorAll("#refeicoes > div")[0]) === null || _o === void 0 ? void 0 : _o.childNodes[2]) === null || _p === void 0 ? void 0 : _p.textContent,
-                            endTime: (_r = (_q = document.querySelectorAll("#refeicoes > div")[0]) === null || _q === void 0 ? void 0 : _q.childNodes[2]) === null || _r === void 0 ? void 0 : _r.textContent,
+                            name: (_k = (_j = document.querySelectorAll("#refeicoes > div")[1]) === null || _j === void 0 ? void 0 : _j.childNodes[0]) === null || _k === void 0 ? void 0 : _k.textContent,
+                            description: (_m = (_l = document.querySelectorAll("#refeicoes > div")[1]) === null || _l === void 0 ? void 0 : _l.childNodes[1]) === null || _m === void 0 ? void 0 : _m.textContent,
+                            startTime: (_p = (_o = document.querySelectorAll("#refeicoes > div")[1]) === null || _o === void 0 ? void 0 : _o.childNodes[2]) === null || _p === void 0 ? void 0 : _p.textContent,
+                            endTime: (_r = (_q = document.querySelectorAll("#refeicoes > div")[1]) === null || _q === void 0 ? void 0 : _q.childNodes[3]) === null || _r === void 0 ? void 0 : _r.textContent,
                         },
                         menuThree: {
-                            name: (_t = (_s = document.querySelectorAll("#refeicoes > div")[0]) === null || _s === void 0 ? void 0 : _s.childNodes[0]) === null || _t === void 0 ? void 0 : _t.textContent,
-                            description: (_v = (_u = document.querySelectorAll("#refeicoes > div")[0]) === null || _u === void 0 ? void 0 : _u.childNodes[1]) === null || _v === void 0 ? void 0 : _v.textContent,
-                            startTime: (_x = (_w = document.querySelectorAll("#refeicoes > div")[0]) === null || _w === void 0 ? void 0 : _w.childNodes[2]) === null || _x === void 0 ? void 0 : _x.textContent,
-                            endTime: (_z = (_y = document.querySelectorAll("#refeicoes > div")[0]) === null || _y === void 0 ? void 0 : _y.childNodes[2]) === null || _z === void 0 ? void 0 : _z.textContent,
+                            name: (_t = (_s = document.querySelectorAll("#refeicoes > div")[2]) === null || _s === void 0 ? void 0 : _s.childNodes[0]) === null || _t === void 0 ? void 0 : _t.textContent,
+                            description: (_v = (_u = document.querySelectorAll("#refeicoes > div")[2]) === null || _u === void 0 ? void 0 : _u.childNodes[1]) === null || _v === void 0 ? void 0 : _v.textContent,
+                            startTime: (_x = (_w = document.querySelectorAll("#refeicoes > div")[2]) === null || _w === void 0 ? void 0 : _w.childNodes[2]) === null || _x === void 0 ? void 0 : _x.textContent,
+                            endTime: (_z = (_y = document.querySelectorAll("#refeicoes > div")[2]) === null || _y === void 0 ? void 0 : _y.childNodes[3]) === null || _z === void 0 ? void 0 : _z.textContent,
                         },
                         menuFor: {
-                            name: (_1 = (_0 = document.querySelectorAll("#refeicoes > div")[0]) === null || _0 === void 0 ? void 0 : _0.childNodes[0]) === null || _1 === void 0 ? void 0 : _1.textContent,
-                            description: (_3 = (_2 = document.querySelectorAll("#refeicoes > div")[0]) === null || _2 === void 0 ? void 0 : _2.childNodes[1]) === null || _3 === void 0 ? void 0 : _3.textContent,
-                            startTime: (_5 = (_4 = document.querySelectorAll("#refeicoes > div")[0]) === null || _4 === void 0 ? void 0 : _4.childNodes[2]) === null || _5 === void 0 ? void 0 : _5.textContent,
-                            endTime: (_7 = (_6 = document.querySelectorAll("#refeicoes > div")[0]) === null || _6 === void 0 ? void 0 : _6.childNodes[2]) === null || _7 === void 0 ? void 0 : _7.textContent,
+                            name: (_1 = (_0 = document.querySelectorAll("#refeicoes > div")[3]) === null || _0 === void 0 ? void 0 : _0.childNodes[0]) === null || _1 === void 0 ? void 0 : _1.textContent,
+                            description: (_3 = (_2 = document.querySelectorAll("#refeicoes > div")[3]) === null || _2 === void 0 ? void 0 : _2.childNodes[1]) === null || _3 === void 0 ? void 0 : _3.textContent,
+                            startTime: (_5 = (_4 = document.querySelectorAll("#refeicoes > div")[3]) === null || _4 === void 0 ? void 0 : _4.childNodes[2]) === null || _5 === void 0 ? void 0 : _5.textContent,
+                            endTime: (_7 = (_6 = document.querySelectorAll("#refeicoes > div")[3]) === null || _6 === void 0 ? void 0 : _6.childNodes[3]) === null || _7 === void 0 ? void 0 : _7.textContent,
                         },
                     };
                 })
                     .then((menu) => __awaiter(void 0, void 0, void 0, function* () {
+                    console.log(menu);
                     const menuReady = [];
                     if (Object.keys(menu.menuOne).length === 4)
                         menuReady.push(menu.menuOne);

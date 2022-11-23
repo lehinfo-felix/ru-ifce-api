@@ -13,16 +13,24 @@ const consultaAlmoco_1 = require("../scripts/consultas/consultaAlmoco");
 const isWeekend_1 = require("../helpers/isWeekend");
 const timerResponse_1 = require("../helpers/timerResponse");
 const removeFirstName_1 = require("../utils/removeFirstName");
+const serverError_1 = require("../errors/serverError");
+const responseServerError_1 = require("../helpers/responseServerError");
+const sucessResponse_1 = require("../helpers/sucessResponse");
 class ConsultasController {
     consultaAlmoco(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            if ((0, isWeekend_1.isWeekend)())
-                return (0, timerResponse_1.timeResponse)();
-            function callbackDados(menu) {
-                const menuReady = (0, removeFirstName_1.removeFirstName)(menu);
-                res.json(menuReady);
+            try {
+                if ((0, isWeekend_1.isWeekend)())
+                    return (0, timerResponse_1.timeResponse)();
+                function callbackDados(menu) {
+                    const menuReady = (0, removeFirstName_1.removeFirstName)(menu);
+                    res.json((0, sucessResponse_1.sucessResponse)(menuReady));
+                }
+                (0, consultaAlmoco_1.consultaRefeicoes)(callbackDados);
             }
-            (0, consultaAlmoco_1.consultaRefeicoes)(callbackDados);
+            catch (error) {
+                return (0, responseServerError_1.responseServerError)(new serverError_1.ServerError());
+            }
         });
     }
     consultaLancheManha(req, res) {

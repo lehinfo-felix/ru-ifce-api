@@ -1,4 +1,4 @@
 
 export interface CheckMenuOnDb {
-   handle: ()=> Boolean 
+   handle: ()=> Promise<Boolean> 
 }
