@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.consultaRefeicoes = void 0;
 const puppeteer_1 = __importDefault(require("puppeteer"));
 const consultaRefeicoes = (callback) => __awaiter(void 0, void 0, void 0, function* () {
-    const browser = yield puppeteer_1.default.launch({ headless: false });
+    const browser = yield puppeteer_1.default.launch(/*{ headless: false }*/);
     const page = yield browser.newPage();
     yield page.goto("https://ru.cedro.ifce.edu.br/sign-in");
     yield page.type('[name="email"]', "lehinfo.felix@gmail.com");
