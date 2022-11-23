@@ -12,16 +12,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = __importDefault(require("express"));
 // import mongoose from "mongoose";
 // import mongoConnect from "./db";
+const dotenv_1 = __importDefault(require("dotenv"));
+const express_1 = __importDefault(require("express"));
 const routes_1 = __importDefault(require("./routes"));
 const app = (0, express_1.default)();
+dotenv_1.default.config();
 app.use(express_1.default.json());
 app.use(routes_1.default);
-const port = 8080;
-app.listen(port, () => __awaiter(void 0, void 0, void 0, function* () {
-    console.log("Api ru-ifce-bot running in port " + port + "🚀");
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => __awaiter(void 0, void 0, void 0, function* () {
+    console.log("ru-ifce-bot iniciado na porta " + PORT + "🚀");
 }));
 // mongoose
 //   .connect("mongodb://localhost:27017/testtt")

@@ -39,10 +39,8 @@ class ConsultasController {
         res.json("lanche manhã");
     }
     consultaLancheTarde(req, res) {
-        if ((0, isWeekend_1.isWeekend)()) {
-            if ((0, isWeekend_1.isWeekend)())
-                return (0, timerResponse_1.timeResponse)();
-        }
+        if ((0, isWeekend_1.isWeekend)())
+            return (0, timerResponse_1.timeResponse)();
         res.json("lanche tarde");
     }
     consultaLancheNoite(req, res) {
