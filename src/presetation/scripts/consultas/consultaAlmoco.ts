@@ -1,4 +1,5 @@
 import puppeteer from "puppeteer";
+import { Menu } from "src/presetation/protocols/dailyMenu";
 
 export const consultaRefeicoes = async (callback: Function) => {
   const browser = await puppeteer.launch({ headless: false });
@@ -21,41 +22,70 @@ export const consultaRefeicoes = async (callback: Function) => {
           page
             .evaluate(() => {
               return {
-                refeicaoUm: {
-                  nome: document.querySelectorAll("#refeicoes > div")[0]
+                menuOne: {
+                  name: document.querySelectorAll("#refeicoes > div")[0]
                     ?.childNodes[0]?.textContent,
-                  Descricao:
+                  description:
                     document.querySelectorAll("#refeicoes > div")[0]
                       ?.childNodes[1]?.textContent,
+                  startTime:
+                    document.querySelectorAll("#refeicoes > div")[0]
+                      ?.childNodes[2]?.textContent,
+                  endTime:
+                    document.querySelectorAll("#refeicoes > div")[0]
+                      ?.childNodes[3]?.textContent,
                 },
 
-                refeicaoDois: {
-                  nome: document.querySelectorAll("#refeicoes > div")[1]
-                    ?.childNodes[0]?.textContent,
-                  Descricao:
-                    document.querySelectorAll("#refeicoes > div")[1]
-                      ?.childNodes[1]?.textContent,
+                menuTwo: {
+                  name: document.querySelectorAll("#refeicoes > div")[1]
+                  ?.childNodes[0]?.textContent,
+                description:
+                  document.querySelectorAll("#refeicoes > div")[1]
+                    ?.childNodes[1]?.textContent,
+                startTime:
+                  document.querySelectorAll("#refeicoes > div")[1]
+                    ?.childNodes[2]?.textContent,
+                endTime:
+                  document.querySelectorAll("#refeicoes > div")[1]
+                    ?.childNodes[3]?.textContent,
                 },
-                refeicaoTres: {
-                  nome: document.querySelectorAll("#refeicoes > div")[2]
-                    ?.childNodes[0]?.textContent,
-                  Descricao:
-                    document.querySelectorAll("#refeicoes > div")[2]
-                      ?.childNodes[1]?.textContent,
+                menuThree: {
+                  name: document.querySelectorAll("#refeicoes > div")[2]
+                  ?.childNodes[0]?.textContent,
+                description:
+                  document.querySelectorAll("#refeicoes > div")[2]
+                    ?.childNodes[1]?.textContent,
+                startTime:
+                  document.querySelectorAll("#refeicoes > div")[2]
+                    ?.childNodes[2]?.textContent,
+                endTime:
+                  document.querySelectorAll("#refeicoes > div")[2]
+                    ?.childNodes[3]?.textContent,
                 },
-                refeicaoQuatro: {
-                  nome: document.querySelectorAll("#refeicoes > div")[3]
-                    ?.childNodes[0]?.textContent,
-                  Descricao:
-                    document.querySelectorAll("#refeicoes > div")[3]
-                      ?.childNodes[1]?.textContent,
+                menuFor: {
+                  name: document.querySelectorAll("#refeicoes > div")[3]
+                  ?.childNodes[0]?.textContent,
+                description:
+                  document.querySelectorAll("#refeicoes > div")[3]
+                    ?.childNodes[1]?.textContent,
+                startTime:
+                  document.querySelectorAll("#refeicoes > div")[3]
+                    ?.childNodes[2]?.textContent,
+                endTime:
+                  document.querySelectorAll("#refeicoes > div")[3]
+                    ?.childNodes[3]?.textContent,
                 },
               };
             })
-            .then(async (divs) => {
-              console.log("Divs", divs);
-
-              callback(divs);
+            .then(async (menu) => {
+              console.log(menu)
+              const menuReady: Menu[] = []
+              
+              if(Object.keys(menu.menuOne).length === 4) menuReady.push(menu.menuOne as Menu)
+              if(Object.keys(menu.menuTwo).length === 4)  menuReady.push(menu.menuTwo as Menu)
+              if(Object.keys(menu.menuThree).length === 4)  menuReady.push(menu.menuThree as Menu)
+              if(Object.keys(menu.menuFor).length === 4)  menuReady.push(menu.menuFor as Menu)
+              callback(menuReady);
             });
         });
     });

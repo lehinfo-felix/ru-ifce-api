@@ -11,43 +11,35 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const consultaAlmoco_1 = require("../scripts/consultas/consultaAlmoco");
 const isWeekend_1 = require("../helpers/isWeekend");
+const timerResponse_1 = require("../helpers/timerResponse");
+const removeFirstName_1 = require("../utils/removeFirstName");
 class ConsultasController {
     consultaAlmoco(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            if ((0, isWeekend_1.isWeekend)()) {
-                res.status(200).json({
-                    mensage: "Olá, As consultas de refeições estão disponíveis apenas de segunda a sexta!",
-                });
-                return;
-            }
-            function callbackDados(refeicao) {
-                res.json(refeicao);
+            if ((0, isWeekend_1.isWeekend)())
+                return (0, timerResponse_1.timeResponse)();
+            function callbackDados(menu) {
+                const menuReady = (0, removeFirstName_1.removeFirstName)(menu);
+                res.json(menuReady);
             }
             (0, consultaAlmoco_1.consultaRefeicoes)(callbackDados);
         });
     }
     consultaLancheManha(req, res) {
-        if ((0, isWeekend_1.isWeekend)()) {
-            res.status(200).json({
-                mensage: "Olá, As consultas de refeições estão disponíveis apenas de segunda a sexta!",
-            });
-        }
+        if ((0, isWeekend_1.isWeekend)())
+            return (0, timerResponse_1.timeResponse)();
         res.json("lanche manhã");
     }
     consultaLancheTarde(req, res) {
         if ((0, isWeekend_1.isWeekend)()) {
-            res.status(200).json({
-                mensage: "Olá, As consultas de refeições estão disponíveis apenas de segunda a sexta!",
-            });
+            if ((0, isWeekend_1.isWeekend)())
+                return (0, timerResponse_1.timeResponse)();
         }
         res.json("lanche tarde");
     }
     consultaLancheNoite(req, res) {
-        if ((0, isWeekend_1.isWeekend)()) {
-            res.status(200).json({
-                mensage: "Olá, As consultas de refeições estão disponíveis apenas de segunda a sexta!",
-            });
-        }
+        if ((0, isWeekend_1.isWeekend)())
+            return (0, timerResponse_1.timeResponse)();
         res.json("lanche noite");
     }
 }
