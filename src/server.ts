@@ -7,7 +7,7 @@ const app = express();
 app.use(express.json());
 
 app.use(route);
-const port = 4000
+const port = 8080
 
 app.listen(port, async () => {
   console.log("Api ru-ifce-bot running in port " + port + "🚀");
