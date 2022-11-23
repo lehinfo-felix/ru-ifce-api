@@ -19,7 +19,7 @@ const routes_1 = __importDefault(require("./routes"));
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use(routes_1.default);
-const port = 4000;
+const port = 8080;
 app.listen(port, () => __awaiter(void 0, void 0, void 0, function* () {
     console.log("Api ru-ifce-bot running in port " + port + "🚀");
 }));

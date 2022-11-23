@@ -29,9 +29,7 @@ class ConsultasController {
   }
 
   consultaLancheTarde(req: Request, res: Response) {
-    if (isWeekend()) {
-      if (isWeekend()) return timeResponse();
-    }
+    if (isWeekend()) return timeResponse();
     res.json("lanche tarde");
   }
 
