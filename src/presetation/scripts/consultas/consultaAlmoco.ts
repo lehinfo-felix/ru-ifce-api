@@ -2,6 +2,7 @@ import puppeteer from "puppeteer";
 import { Menu } from "src/presetation/protocols/dailyMenu";
 
 export const consultaRefeicoes = async (callback: Function) => {
+  console.log('consultando refeições...')
   const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
 

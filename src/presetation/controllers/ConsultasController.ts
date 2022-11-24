@@ -10,6 +10,7 @@ import { sucessResponse } from "../helpers/sucessResponse";
 class ConsultasController {
   async consultaAlmoco(req: Request, res: Response) {
     try {
+      console.log('entrou no controle')
       if (isWeekend()) return timeResponse();
 
       function callbackDados(menu: Menu[]) {
