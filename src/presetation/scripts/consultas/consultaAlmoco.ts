@@ -3,7 +3,7 @@ import { Menu } from "src/presetation/protocols/dailyMenu";
 
 export const consultaRefeicoes = async (callback: Function) => {
   console.log('consultando refeições...')
-  const browser = await puppeteer.launch({ headless: false });
+  const browser = await puppeteer.launch();
   const page = await browser.newPage();
 
   await page.goto("https://ru.cedro.ifce.edu.br/sign-in");
