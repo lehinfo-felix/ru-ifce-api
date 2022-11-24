@@ -11,7 +11,7 @@ app.use(express.json());
 
 app.use(route);
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, async () => {
   console.log("ru-ifce-bot iniciado na porta " + PORT + "🚀");
