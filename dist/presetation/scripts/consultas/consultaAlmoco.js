@@ -13,9 +13,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.consultaRefeicoes = void 0;
-const puppeteer_1 = __importDefault(require("puppeteer"));
+const puppeteer_core_1 = __importDefault(require("puppeteer-core"));
+const puppeteer_1 = require("puppeteer");
 const consultaRefeicoes = (callback) => __awaiter(void 0, void 0, void 0, function* () {
-    const browser = yield puppeteer_1.default.launch({ headless: false });
+    console.log('consultando refeições...');
+    const browser = yield puppeteer_core_1.default.launch({
+        headless: true,
+        executablePath: (0, puppeteer_1.executablePath)()
+    });
     const page = yield browser.newPage();
     yield page.goto("https://ru.cedro.ifce.edu.br/sign-in");
     yield page.type('[name="email"]', "lehinfo.felix@gmail.com");

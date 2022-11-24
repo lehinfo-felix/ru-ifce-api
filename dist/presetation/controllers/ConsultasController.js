@@ -20,6 +20,7 @@ class ConsultasController {
     consultaAlmoco(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
+                console.log('entrou no controle');
                 if ((0, isWeekend_1.isWeekend)())
                     return (0, timerResponse_1.timeResponse)();
                 function callbackDados(menu) {

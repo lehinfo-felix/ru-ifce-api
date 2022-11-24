@@ -1,4 +1,6 @@
-import puppeteer, {executablePath} from "puppeteer-core";
+
+import puppeteer from "puppeteer-core";
+import { executablePath } from "puppeteer";
 import { Menu } from "src/presetation/protocols/dailyMenu";
 
 export const consultaRefeicoes = async (callback: Function) => {
