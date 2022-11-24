@@ -1,24 +1,26 @@
 import { Request, Response } from "express";
-import { consultaRefeicoes } from "../scripts/consultas/consultaAlmoco";
 import { isWeekend } from "../helpers/isWeekend";
 import { timeResponse } from "../helpers/timerResponse";
-import { removeFirstName } from "../utils/removeFirstName";
-import { Menu } from "../protocols/dailyMenu";
+import {  MenuReady } from "../protocols/dailyMenu";
 import { ServerError } from "../errors/serverError";
 import { responseServerError } from "../helpers/responseServerError";
-import { sucessResponse } from "../helpers/sucessResponse";
+import {getTodayPtBr} from '../utils/getDateFormatedToday'
+
+import fs from 'fs'
 class ConsultasController {
   async consultaAlmoco(req: Request, res: Response) {
     try {
       console.log('entrou no controle')
       if (isWeekend()) return timeResponse();
+      const refeicoes: MenuReady = JSON.parse(fs.readFileSync('refeicoes.json').toString())
+      const today = new Date()
+      if(refeicoes.data.length > 0 ){
+        if(refeicoes.updateAt === getTodayPtBr()){
+        }else{
+         
+        }
+       }
 
-      function callbackDados(menu: Menu[]) {
-        const menuReady = removeFirstName(menu);
-        
-        res.json(sucessResponse(menuReady));
-      }
-      consultaRefeicoes(callbackDados);
     } catch (error) {
       return responseServerError(new ServerError());
     }

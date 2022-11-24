@@ -21,6 +21,7 @@ const app = (0, express_1.default)();
 dotenv_1.default.config();
 app.use(express_1.default.json());
 app.use(routes_1.default);
+//WsetTimeout(()=>save(), 1.08^7)
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => __awaiter(void 0, void 0, void 0, function* () {
     console.log("ru-ifce-bot iniciado na porta " + PORT + "🚀");

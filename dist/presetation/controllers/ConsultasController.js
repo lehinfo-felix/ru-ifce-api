@@ -8,14 +8,17 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const consultaAlmoco_1 = require("../scripts/consultas/consultaAlmoco");
 const isWeekend_1 = require("../helpers/isWeekend");
 const timerResponse_1 = require("../helpers/timerResponse");
-const removeFirstName_1 = require("../utils/removeFirstName");
 const serverError_1 = require("../errors/serverError");
 const responseServerError_1 = require("../helpers/responseServerError");
-const sucessResponse_1 = require("../helpers/sucessResponse");
+const getDateFormatedToday_1 = require("../utils/getDateFormatedToday");
+const addRefeicoesInJson_1 = require("../scripts/addRefeicoesInJson");
+const fs_1 = __importDefault(require("fs"));
 class ConsultasController {
     consultaAlmoco(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -23,11 +26,15 @@ class ConsultasController {
                 console.log('entrou no controle');
                 if ((0, isWeekend_1.isWeekend)())
                     return (0, timerResponse_1.timeResponse)();
-                function callbackDados(menu) {
-                    const menuReady = (0, removeFirstName_1.removeFirstName)(menu);
-                    res.json((0, sucessResponse_1.sucessResponse)(menuReady));
+                const refeicoes = JSON.parse(fs_1.default.readFileSync('refeicoes.json').toString());
+                const today = new Date();
+                if (refeicoes.data.length > 0) {
+                    if (refeicoes.updateAt === (0, getDateFormatedToday_1.getTodayPtBr)()) {
+                    }
+                    else {
+                        (0, addRefeicoesInJson_1.saveInJson)();
+                    }
                 }
-                (0, consultaAlmoco_1.consultaRefeicoes)(callbackDados);
             }
             catch (error) {
                 return (0, responseServerError_1.responseServerError)(new serverError_1.ServerError());
