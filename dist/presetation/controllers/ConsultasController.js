@@ -17,7 +17,6 @@ const timerResponse_1 = require("../helpers/timerResponse");
 const serverError_1 = require("../errors/serverError");
 const responseServerError_1 = require("../helpers/responseServerError");
 const getDateFormatedToday_1 = require("../utils/getDateFormatedToday");
-const addRefeicoesInJson_1 = require("../scripts/addRefeicoesInJson");
 const fs_1 = __importDefault(require("fs"));
 class ConsultasController {
     consultaAlmoco(req, res) {
@@ -32,7 +31,6 @@ class ConsultasController {
                     if (refeicoes.updateAt === (0, getDateFormatedToday_1.getTodayPtBr)()) {
                     }
                     else {
-                        (0, addRefeicoesInJson_1.saveInJson)();
                     }
                 }
             }

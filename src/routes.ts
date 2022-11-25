@@ -1,6 +1,7 @@
 import { Router } from "express";
 import ConsultasController from "./presetation/controllers/ConsultasController";
 import ReservaController from "./presetation/controllers/ReservaController";
+import {GetMenuController} from './presetation/controllers/GetMenuController'
 
 const route = Router()
 

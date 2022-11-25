@@ -5,7 +5,7 @@ import express from "express";
 import route from "./routes";
 import fs from 'fs'
 
-import {saveInJson} from './presetation/scripts/addRefeicoesInJson'
+
 const app = express();
 
 dotenv.config();
