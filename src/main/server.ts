@@ -7,5 +7,3 @@ import env from './config/env';
     console.log("ru-ifce-bot iniciado na porta " + env.port + "🚀");
   });
 })()
-
-

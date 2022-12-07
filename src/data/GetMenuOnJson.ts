@@ -1,6 +1,5 @@
 import { IGetMenuOnJson } from "@/domain/useCases";
-import { MenuReady } from "@/presetation/protocols";
-import  fs  from 'fs'
+import   fs  from 'fs'
 
 export class GetMenuOnJson implements IGetMenuOnJson {
 
