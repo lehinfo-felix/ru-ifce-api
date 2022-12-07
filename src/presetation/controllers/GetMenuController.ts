@@ -1,12 +1,7 @@
-import { Controller } from "../protocols/controller";
-import { HttpRequest } from "../protocols/http";
-import { sucessResponse } from '../helpers/sucessResponse'
-import { isWeekend } from "../helpers/isWeekend";
-import { timeResponse } from "../helpers/timerResponse";
-import { IGetMenuOnJson } from "src/domain/useCases/GetMenuOnJson";
-import { responseServerError } from "../helpers/responseServerError";
+import { Controller, HttpRequest } from "../protocols";
+import { sucessResponse, isWeekend, responseServerError, timeResponse } from '../helpers'
+import { IGetMenuOnJson } from "@/domain/useCases";
 import {ServerError} from '../errors/serverError'
-
 
 export class GetMenuController implements Controller {
 
@@ -15,11 +10,11 @@ export class GetMenuController implements Controller {
             this.getMenuOnJson = GetMenuOnJson
       }
 
-      async handle(HttpRequest: HttpRequest, res) {
+      async handle(HttpRequest: HttpRequest) {
             try {
                   if (isWeekend()) return timeResponse();
-                  const menu = new this.getMenuOnJson().handle()
-                  return res.json(menu)
+                  const menu = new this.getMenuOnJson().handle();
+                  return sucessResponse(menu);
                   
 
             } catch (error) {
@@ -29,4 +24,3 @@ export class GetMenuController implements Controller {
       };
 }
 
-W

@@ -1,7 +1,7 @@
-import { IGetMenuOnWebsite } from "src/domain/useCases/GetMenuOnWebsite";
+import { IGetMenuOnWebsite } from "@/domain/useCases";
 import puppeteer from "puppeteer-core";
 import { executablePath } from "puppeteer";
-import { Menu } from "src/presetation/protocols/dailyMenu";
+import { Menu } from "@/presetation/protocols";
 
 export class GetMenuOnWebsite implements IGetMenuOnWebsite {
   async handle(callback) {

@@ -1,0 +1,13 @@
+
+
+Consultas 
+--->  Estudante faz Requisição para consulta de refeição >>>  
+          -> Buscar as refeições no JSON
+          -> Caso a data atual seja igual a do JSON >>> Retorna a Consultas
+          -> Caso a data atual não seja igual a do JSON >> Buscar no site e salvar no JSOn com a data atual
+
+
+CASOS DE USO
+  BUSCAR NO site
+  GRAVAR NO JSON
+  VEIRIFICAR A DATA NO JSON

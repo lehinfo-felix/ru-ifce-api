@@ -6,3 +6,4 @@ const getTodayPtBr = () => {
     return `${today.getDate()}-${today.getMonth()}-${today.getFullYear()}`;
 };
 exports.getTodayPtBr = getTodayPtBr;
+//# sourceMappingURL=getDateFormatedToday.js.map

@@ -32,3 +32,4 @@ class ReservaController {
     }
 }
 exports.default = new ReservaController();
+//# sourceMappingURL=ReservaController.js.map

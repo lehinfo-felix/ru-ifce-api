@@ -8,3 +8,4 @@ class ServerError extends Error {
     }
 }
 exports.ServerError = ServerError;
+//# sourceMappingURL=serverError.js.map

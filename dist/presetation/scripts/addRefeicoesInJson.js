@@ -1,4 +1,3 @@
-"use strict";
 // import fs from 'fs'
 // import { removeFirstName } from '../utils/removeFirstName';
 // import { Menu, MenuReady } from '../protocols/dailyMenu';
@@ -25,3 +24,4 @@
 //        })
 //    };
 // }
+//# sourceMappingURL=addRefeicoesInJson.js.map

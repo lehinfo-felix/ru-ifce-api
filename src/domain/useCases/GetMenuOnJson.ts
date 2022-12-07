@@ -1,5 +1,5 @@
-import { Menu } from "src/presetation/protocols/dailyMenu";
+import {  MenuReady } from "@/presetation/protocols";
 
 export interface IGetMenuOnJson {
-   handle: (name: string)=> Menu
+   handle: () => Promise<MenuReady>
 }
