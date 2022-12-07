@@ -1,35 +1,26 @@
-import { Controller } from "../protocols/controller";
-import { HttpRequest } from "../protocols/http";
-import {sucessResponse } from '../helpers/sucessResponse'
-import { isWeekend } from "../helpers/isWeekend";
-import { timeResponse } from "../helpers/timerResponse";
-import { IGetMenuOnJson } from "src/domain/useCases/GetMenuOnJson";
+import { Controller, HttpRequest } from "../protocols";
+import { sucessResponse, isWeekend, responseServerError, timeResponse } from '../helpers'
+import { IGetMenuOnJson } from "@/domain/useCases";
+import {ServerError} from '../errors/serverError'
 
-
-class ConsultLunch implements Controller{
+export class GetMenuController implements Controller {
 
       private readonly getMenuOnJson;
-      constructor(GetMenuOnJson: IGetMenuOnJson){
-            this.getMenuOnJson =  GetMenuOnJson
+      constructor(GetMenuOnJson: IGetMenuOnJson) {
+            this.getMenuOnJson = GetMenuOnJson
       }
 
-      async handle (HttpRequest: HttpRequest) {
+      async handle(HttpRequest: HttpRequest) {
             try {
                   if (isWeekend()) return timeResponse();
-                new this.getMenuOnJson()
+                  const menu = new this.getMenuOnJson().handle();
+                  return sucessResponse(menu);
+                  
 
-                
-                  const today = new Date()
-                  if(refeicoes.data.length > 0 ){
-                    if(refeicoes.updateAt === getTodayPtBr()){
-                    }else{
-                     
-                    }
-                   }
-            
-                } catch (error) {
+            } catch (error) {
                   return responseServerError(new ServerError());
-                }
-         
-      }; 
+            }
+
+      };
 }
+

@@ -8,3 +8,4 @@ const sucessResponse = (data) => {
     };
 };
 exports.sucessResponse = sucessResponse;
+//# sourceMappingURL=sucessResponse.js.map

@@ -8,3 +8,4 @@ const responseServerError = (error) => {
     };
 };
 exports.responseServerError = responseServerError;
+//# sourceMappingURL=responseServerError.js.map

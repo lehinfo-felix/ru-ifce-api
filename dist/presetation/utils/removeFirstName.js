@@ -17,3 +17,4 @@ const removeFirstName = (data) => {
     });
 };
 exports.removeFirstName = removeFirstName;
+//# sourceMappingURL=removeFirstName.js.map

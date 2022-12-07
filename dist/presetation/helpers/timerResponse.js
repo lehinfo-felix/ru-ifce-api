@@ -8,3 +8,4 @@ const timeResponse = () => {
     };
 };
 exports.timeResponse = timeResponse;
+//# sourceMappingURL=timerResponse.js.map

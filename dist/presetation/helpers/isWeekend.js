@@ -8,3 +8,4 @@ const isWeekend = () => {
     return false;
 };
 exports.isWeekend = isWeekend;
+//# sourceMappingURL=isWeekend.js.map

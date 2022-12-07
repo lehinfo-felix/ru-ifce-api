@@ -1,11 +1,14 @@
+import { IGetMenuOnJson } from "@/domain/useCases";
+import   fs  from 'fs'
 
-import fs from 'fs'
-import { IGetMenuOnJson } from 'src/domain/useCases/GetMenuOnJson'
+export class GetMenuOnJson implements IGetMenuOnJson {
 
-class GetMenuOnJson implements IGetMenuOnJson {
-   handle(name: string) {
-      const refeicoes: MenuReady = JSON.parse(fs.readFileSync('refeicoes.json').toString())
+async handle () {
+   const menuReady =  JSON.parse(fs.readFileSync('./refeicoes.json').toString());  
 
+   return {
+      data: JSON.parse(menuReady.data),
+      updateAt: menuReady.updateAt
    }
-
+};
 }
