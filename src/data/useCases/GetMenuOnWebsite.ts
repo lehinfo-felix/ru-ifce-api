@@ -85,7 +85,6 @@ export class GetMenuOnWebsite implements IGetMenuOnWebsite {
                 };
               })
               .then(async (menu) => {
-                console.log(menu);
                 const menuReady: Menu[] = [];
 
                 if (Object.keys(menu.menuOne).length === 4)
@@ -97,7 +96,7 @@ export class GetMenuOnWebsite implements IGetMenuOnWebsite {
                 if (Object.keys(menu.menuFor).length === 4)
                   menuReady.push(menu.menuFor as Menu);
 
-                callback(menuReady);
+                await callback(menuReady);
               });
           });
       });

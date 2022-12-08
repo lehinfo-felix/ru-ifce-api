@@ -1,5 +1,5 @@
-import { IGetMenuByType } from "@/domain/useCases";
-import { GetMenuByType } from "@/data";
-export const makeGetMenuByType = (): IGetMenuByType =>{
-  return new GetMenuByType()
-}
+// import { IGetMenuByType } from "@/domain/useCases";
+// import { GetMenuByType } from "@/data/useCases";
+// export const makeGetMenuByType = (): IGetMenuByType =>{
+//   return new GetMenuByType()
+// }
