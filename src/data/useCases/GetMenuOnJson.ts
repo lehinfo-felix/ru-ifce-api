@@ -6,9 +6,9 @@ import { join } from "path";
 export class GetMenuOnJson implements IGetMenuOnJson {
 
 async handle () {
-   const menuReady =  JSON.parse(fs.readFileSync(join(__dirname, '../../main/docs')).toString());  
-
+   const menuReady =  JSON.parse(fs.readFileSync(join(__dirname, '../../main/docs/menu.json')).toString()); 
    if(menuReady){
+
       return {
          data: JSON.parse(menuReady.data),
          updateAt: menuReady.updateAt

@@ -9,7 +9,7 @@ export class GetMenuByType implements IGetMenuByType {
     if (menu.length > 0) {
       if (type === 'lm') {
         for (let index = 0; index < menu.length; index++) {
-          if (menu[index].name === 'Lanche da Manhã') {
+          if (menu[index]?.name === 'Lanche da manhã') {
             result = menu[index]
           }
         }
@@ -17,7 +17,7 @@ export class GetMenuByType implements IGetMenuByType {
 
       if (type === 'al') {
         for (let index = 0; index < menu.length; index++) {
-          if (menu[index].name === 'Almoço') {
+          if (menu[index]?.name === 'Almoço') {
             result = menu[index]
           }
         }
@@ -25,7 +25,8 @@ export class GetMenuByType implements IGetMenuByType {
 
       if (type === 'lt') {
         for (let index = 0; index < menu.length; index++) {
-          if (menu[index].name === 'Lanche da tarde') {
+        
+          if (menu[index]?.name === 'Lanche da tarde') {
             result = menu[index]
           }
         }
@@ -33,7 +34,7 @@ export class GetMenuByType implements IGetMenuByType {
 
       if (type === 'ln') {
         for (let index = 0; index < menu.length; index++) {
-          if (menu[index].name === 'Lanche da Noite') {
+          if (menu[index]?.name === 'Lanche da noite') {
             result = menu[index]
           }
         }

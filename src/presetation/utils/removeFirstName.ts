@@ -1,4 +1,5 @@
-import {  Menu, MenuReady } from "../protocols/dailyMenu";
+import {  Menu, } from "../protocols/dailyMenu";
+import { getTodayPtBr } from ".";
 
 export const removeFirstName = (data: Menu[]): Menu[]=>{
    const today = new Date()
@@ -12,8 +13,8 @@ export const removeFirstName = (data: Menu[]): Menu[]=>{
       return {
          name: el.name.replace('Refeição : ', '') as string,
          description: el.description.replace('Descrição : ', ''),
-         startTime: new Date(`${todayPtBr}${timeStart}`).toString(),
-         endTime: new Date(`${todayPtBr}${timeEnd}`).toString(),
+         startTime: timeStart,
+         endTime: timeEnd,
       }
      
    })

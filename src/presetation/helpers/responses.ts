@@ -9,10 +9,10 @@ export const responseServerError = (error: Error): HttpResponse=>{
 }
 
 
-export const responseNotFoundMenuError = (error: Error): HttpResponse=>{
+export const responseNotFoundMenu = (menu: string): HttpResponse=>{
   return{
      statusCode: 500,
-     body: error
+     body: {message: `Não foi encontrato refeições para ${menu}`}
      
   }
 }

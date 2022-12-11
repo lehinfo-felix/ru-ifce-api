@@ -1,4 +1,4 @@
-import { IGetMenu, IGetMenuByType, IGetMenuOnJson , IAddMenuInJson, typesMenu} from "@/domain/useCases";
+import { IGetMenu, IGetMenuByType, IGetMenuOnJson, IAddMenuInJson, typesMenu } from "@/domain/useCases";
 import { getTodayPtBr, verifyIfExistsJson } from './utils'
 
 export class GetMenu implements IGetMenu {
@@ -6,32 +6,28 @@ export class GetMenu implements IGetMenu {
     private readonly getMenuOnJson: IGetMenuOnJson,
     private readonly getMenuByType: IGetMenuByType,
     private readonly addMenuInJson: IAddMenuInJson,
-    ){}
-  async get (type: typesMenu)  {
-     console.log('entoru no getMenu')
-
+  ) { }
+  async get(type: typesMenu) {
+    console.log('1 -> Entoru no GetMenu')
     const jsonExists = await verifyIfExistsJson()
-    console.log(jsonExists)
-    if(jsonExists){
+    if (jsonExists) {
       const menus = await this.getMenuOnJson.handle();
-      if(menus.updateAt == getTodayPtBr()) {
-       return  this.getMenuByType.handler(type, menus.data)
-      }else{
-       const isSucess = await this.addMenuInJson.handle();
-       if(isSucess){
+      if (menus.updateAt !== getTodayPtBr()) {
+        return this.getMenuByType.handler(type, menus.data)
+      } else {
+        const isSucess = await this.addMenuInJson.handle();
+        if (isSucess) {
         const menu = await this.getMenuOnJson.handle()
-        return this.getMenuByType.handler('al', menu.data);
-       }
+        return this.getMenuByType.handler(type, menu.data);
+        }
       }
-    }else{
+    } else {
       const isSucess = await this.addMenuInJson.handle();
-       if(isSucess){
+      if (isSucess) {
         const menu = await this.getMenuOnJson.handle()
         return this.getMenuByType.handler('al', menu.data);
-       }
+      }
     }
-
-     return {}
-
+    return {}
   };
 }
