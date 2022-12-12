@@ -12,7 +12,7 @@ export class GetMenu implements IGetMenu {
     const jsonExists = await verifyIfExistsJson()
     if (jsonExists) {
       const menus = await this.getMenuOnJson.handle();
-      if (menus.updateAt !== getTodayPtBr()) {
+      if (menus.updateAt == getTodayPtBr()) {
         return this.getMenuByType.handler(type, menus.data)
       } else {
         const isSucess = await this.addMenuInJson.handle();
