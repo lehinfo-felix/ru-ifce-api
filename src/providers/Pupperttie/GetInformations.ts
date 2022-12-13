@@ -6,7 +6,7 @@ export class GetInformations implements IGetInformationsWeb{
   
  async get(callback) {
   const browser = await puppeteer.launch({
-    headless: false,
+    //headless: false,
     executablePath: executablePath(),
   });
   const page = await browser.newPage();
