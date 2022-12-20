@@ -8,6 +8,7 @@ export class GetInformations implements IGetInformationsWeb{
   const browser = await puppeteer.launch({
     headless: true,
     executablePath: executablePath(),
+    args: ['--no-sandbox']
   });
   const page = await browser.newPage();
 
